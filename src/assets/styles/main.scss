@@ -1,0 +1,17 @@
+$mainColor:#FF385C;
+$whiteColor:#fff;
+$round:50%;
+
+%searchInput {
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+@mixin size($width,$height){
+    width: $width;
+    height: $height;
+}

@@ -1,0 +1,112 @@
+@import './main.scss';
+
+.header {
+    @include size(100%, 80px);
+    display: flex;
+    flex-basis: 500px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+    .logo {
+        @include size(118px, 64);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            transform: scale(0.9);
+            transition: 0.5s;
+        }
+    }
+
+    .searchBar {
+        @extend %searchInput;
+        margin-left: 150px;
+
+        .searchInput {
+            all: unset;
+            padding: 0 60px;
+            box-sizing: border-box;
+        }
+
+        .searchIcon {
+            background-color: $mainColor;
+            color: $whiteColor;
+            padding: 10px;
+            border-radius: $round;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(0.9);
+                transition: 0.5s;
+            }
+
+            &:active {
+                background-color: $whiteColor;
+                color: $mainColor;
+            }
+        }
+    }
+
+    .hamburgerBar {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        .globeIcon {
+            @include size(15px, 15px);
+        }
+
+        .profile {
+            background-color: $whiteColor;
+            @extend %searchInput;
+            box-shadow: none;
+            justify-content: center;
+            gap: 3px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            .hamburger {
+                padding: 0 10px;
+            }
+
+            .profilePhoto {
+                @include size(35px, 35px);
+                border-radius: $round;
+            }
+        }
+
+        .profileMenu {
+            font-size: 15px;
+            display: flex;
+            flex-flow: column nowrap;
+            @include size(220px,300px);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: absolute;
+            top: 55px;
+            left: 70px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            hr{
+                @include size(100%,0px);
+            }
+            span{
+                padding: 15px 20px;
+                &:hover{
+                    cursor: pointer;
+                    background-color: beige;
+                }
+            }
+        }
+    }
+}
