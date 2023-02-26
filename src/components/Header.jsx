@@ -1,18 +1,39 @@
-import React, { useState } from 'react';
-import icon from '../assets/images/airbnb.svg';
+import React, { useEffect, useRef, useState } from 'react';
+import logoFull from '../assets/images/airbnb.svg';
+import logo from '../assets/images/icons8-airbnb.svg';
+import burger from '../assets/images/burger.svg';
 import globe from '../assets/images/globe.svg';
 import header from '../assets/styles/Header.module.scss';
-import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Header(prop) {
+function Header() {
     const [menu, setmenu] = useState(false);
+    const [windowWidth, setwindowWidth] = useState(window.innerWidth);
+    const btnRef = useRef();
+    const iconRef = useRef();
+    const imgRef = useRef();
 
+    useEffect(() => {
+        const closer = (e) => {
+            if (!(e.target === btnRef.current ||
+                e.target === iconRef.current ||
+                e.target === imgRef.current))
+                setmenu(false);
+        }
+        const handleWindowResize = () => setwindowWidth(window.innerWidth);
+        document.body.addEventListener("click", closer);
+        window.addEventListener('resize', handleWindowResize);
+        return () => {
+            document.body.removeEventListener('click', closer);
+            window.removeEventListener('resize', handleWindowResize);
+        }
+    }, []);
 
     return (
         <header className={header.header}>
             <div>
-                <img className={header.logo} src={icon} alt="icon" />
+                <img className={header.logo} src={windowWidth < 1040 ? logo : logoFull} alt="icon" />
             </div>
             <div className={header.searchBar}>
                 <input className={header.searchInput} placeholder='Search for airbnb...' type="text" />
@@ -21,25 +42,22 @@ function Header(prop) {
             <div className={header.hamburgerBar}>
                 <span>Airbnb your home</span>
                 <img src={globe} className={header.globeIcon} alt="globe" />
-                <button className={header.profile} onClick={()=>setmenu(!menu)}>
-                    <FontAwesomeIcon className={header.hamburger} icon={faBars} />
-                    <img className={header.profilePhoto} src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="profile" />
+                <button ref={btnRef} className={header.profile} onClick={() => setmenu(menu => !menu)}>
+                <img ref={iconRef} className={header.hamburger} src={burger} alt="burger" />
+                <img ref={imgRef} className={header.profilePhoto} src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="profile" />
                 </button>
                 {menu && <div className={header.profileMenu}>
                     <span>Messages</span>
                     <span>Trips</span>
                     <span>Wishlists</span>
-                    <hr />
                     <span>Airbnb your home</span>
                     <span>Host an experience</span>
                     <span>Refer a Host</span>
                     <span>Account</span>
-                    <hr />
                     <span>Help</span>
                     <span>Log out</span>
                 </div>}
             </div>
-
         </header>
     )
 }
