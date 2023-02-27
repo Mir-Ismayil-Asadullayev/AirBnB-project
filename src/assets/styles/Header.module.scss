@@ -1,161 +1,172 @@
 @import './main.scss';
 
-.header {
-    @include size(100%, 80px);
-    display: flex;
-    flex-basis: 500px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    box-sizing: border-box;
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+header {
+    position: sticky;
+    top: 0;
+    background-color: $whiteColor;
+    .header {
+        @include size(100%, 80px);
+        display: flex;
+        flex-basis: 500px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        box-sizing: border-box;
+        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
-    .logo {
-        @include size(118px, 64px);
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &:active {
-            transform: scale(0.9);
-            transition: 0.5s;
-        }
-    }
-
-    .searchBar {
-        @extend %searchInput;
-        margin-left: 150px;
-
-        .searchInput {
-            all: unset;
-            padding: 0 60px;
-            box-sizing: border-box;
-        }
-
-        .searchIcon {
-            background-color: $mainColor;
-            color: $whiteColor;
-            padding: 10px;
-            border-radius: $round;
+        .logo {
+            @include size(118px, 64px);
 
             &:hover {
                 cursor: pointer;
-                transform: scale(0.9);
-                transition: 0.5s;
             }
 
             &:active {
-                background-color: $whiteColor;
-                color: $mainColor;
+                transform: scale(0.9);
+                transition: 0.5s;
             }
         }
-    }
 
-    .hamburgerBar {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-
-        .globeIcon {
-            @include size(15px, 15px);
-        }
-
-        .profile {
-            background-color: $whiteColor;
+        .searchBar {
             @extend %searchInput;
-            justify-content: center;
-            gap: 3px;
+            margin-left: 150px;
 
-            &:hover {
-                cursor: pointer;
-                box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px 1px;
+            .searchInput {
+                all: unset;
+                padding: 0 60px;
+                box-sizing: border-box;
             }
 
-            .hamburger {
-                padding: 0 10px;
-                width: 18px;
-                padding-right: 3px;
-            }
-
-            .profilePhoto {
-                @include size(35px, 35px);
+            .searchIcon {
+                background-color: $mainColor;
+                color: $whiteColor;
+                padding: 10px;
                 border-radius: $round;
-            }
-        }
-
-        .profileMenu {
-            font-size: 15px;
-            display: flex;
-            flex-flow: column nowrap;
-            @include size(220px, 410px);
-            position: absolute;
-            top: 55px;
-            left: 70px;
-            border-radius: 8px;
-            background-color: #fff;
-            font-size: 13px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-            span {
-                padding: 15px 17px;
-
-                &:nth-child(-n+3) {
-                    font-weight: 600;
-                }
-
-                &:nth-child(3),
-                &:nth-child(7) {
-                    border-bottom: 1px solid rgb(204, 204, 204);
-                }
 
                 &:hover {
                     cursor: pointer;
-                    background-color: rgb(241, 241, 241);
+                    transform: scale(0.9);
+                    transition: 0.5s;
+                }
+
+                &:active {
+                    background-color: $whiteColor;
+                    color: $mainColor;
                 }
             }
         }
-    }
 
-
-    @media (max-width:1040px) {
-        & {
-            padding: 0 8px;
-        }
-
-        .logo {
-            width: 40px;
-            padding: 0 10px 0 0;
-        }
-
-        .searchInput {
-            padding: 0 5px !important;
-        }
-
-        .hamburgerBar>span:first-child,
-        .globeIcon,
-        .profilePhoto {
-            display: none;
-        }
-
-        .profile {
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        .profileMenu {
-            top: 54px !important;
-            left: -190px !important;
-        }
-
-        .searchBar,
-        .searchInput {
-            box-sizing: border-box;
+        .hamburgerBar {
+            position: relative;
+            display: flex;
             justify-content: center;
-            gap: 0;
-            margin: 0;
+            align-items: center;
+            gap: 30px;
+
+            .globeIcon {
+                @include size(15px, 15px);
+            }
+
+            .profile {
+                background-color: $whiteColor;
+                @extend %searchInput;
+                justify-content: center;
+                gap: 3px;
+
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px 1px;
+                }
+
+                .hamburger {
+                    padding: 0 10px;
+                    width: 18px;
+                    padding-right: 3px;
+                }
+
+                .profilePhoto {
+                    @include size(35px, 35px);
+                    border-radius: $round;
+                }
+            }
+
+            .profileMenu {
+                position: relative;
+                z-index: 1001;
+                font-size: 15px;
+                display: flex;
+                flex-flow: column nowrap;
+                @include size(220px, 410px);
+                position: absolute;
+                top: 55px;
+                left: 70px;
+                border-radius: 8px;
+                background-color: #fff;
+                font-size: 13px;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+                span {
+                    padding: 15px 17px;
+
+                    &:nth-child(-n+3) {
+                        font-weight: 600;
+                    }
+
+                    &:nth-child(3),
+                    &:nth-child(7) {
+                        border-bottom: 1px solid rgb(204, 204, 204);
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: rgb(241, 241, 241);
+                    }
+                }
+            }
         }
+
+        @media (max-width:1040px) {
+            & {
+                padding: 0 8px;
+            }
+
+            .logo {
+                width: 40px;
+                padding: 0 10px 0 0;
+            }
+
+            .searchInput {
+                padding: 0 5px !important;
+            }
+
+            .hamburgerBar>span:first-child,
+            .globeIcon,
+            .profilePhoto {
+                display: none;
+            }
+
+            .profile {
+                box-shadow: none !important;
+                border: none !important;
+            }
+
+            .profileMenu {
+                top: 54px !important;
+                left: -190px !important;
+            }
+
+            .searchBar,
+            .searchInput {
+                box-sizing: border-box;
+                justify-content: center;
+                gap: 0;
+                margin: 0;
+            }
+        }
+    }
+    .carousel {
+        display: flex;
+        height: 80px;
+        box-shadow: 0px 11px 19px -23px #111;
     }
 }

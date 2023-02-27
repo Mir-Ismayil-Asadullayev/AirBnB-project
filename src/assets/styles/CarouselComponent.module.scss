@@ -1,0 +1,37 @@
+@import './main.scss';
+
+.container {
+    @include size(90%, 78px);
+    &>button {
+        background: none !important;
+
+        &::before {
+            box-shadow: 0px 0px 20px 25px $whiteColor;
+            font-size: 12px;
+            color: $blackColor;
+            background-color: $whiteColor;
+            padding: 7px;
+            font-weight: bold;
+            border-radius: $round;
+            border: 1px solid rgb(199, 199, 199);
+        }
+    }
+
+    .items {
+        @include size(105px, 56px);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        gap: 10px;
+        font-size: 12px;
+        opacity: 0.6;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
+            border-bottom: 1px solid;
+        }
+    }
+}

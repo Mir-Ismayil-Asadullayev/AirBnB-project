@@ -1,7 +1,7 @@
 @import './main.scss';
 
-.footer{
-    @include size(100%,50px);
+.footer {
+    @include size(100%, 50px);
     border-top: 1px solid rgb(218, 218, 218);
     position: fixed;
     bottom: 0;
@@ -12,27 +12,31 @@
     box-sizing: border-box;
     font-size: 14px;
     gap: 10px;
+    background-color: $whiteColor;
 
-    &>div{
+    &>div {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 15px;
     }
 
-    &>div:last-child>img{
-        @include size(16px,16px);
+    &>div:last-child>img {
+        @include size(16px, 16px);
     }
+
     @media (max-width:1040px) {
-       &>div:last-child{
-        display: none;
-       }
-       &{
-        justify-content: center;
-       }
-       &>div:first-child>span:nth-child(n+3){
-        display: none;
-       }
+        &>div:last-child {
+            display: none;
+        }
+
+        & {
+            justify-content: center;
+        }
+
+        &>div:first-child>span:nth-child(n+3) {
+            display: none;
+        }
 
     }
 }
