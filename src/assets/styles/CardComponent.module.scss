@@ -1,0 +1,82 @@
+@import './main.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-top: 60px;
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cardWrapper {
+        max-width: 23vw;
+        max-height: 284px;
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        overflow: inherit;
+        margin: 35px 10px;
+
+        .carousel {
+            border-radius: 13px;
+        }
+
+        &:hover {
+            &>div>.carousel>button {
+                display: block;
+            }
+
+            cursor: pointer;
+        }
+
+        &>div>.carousel>ul>li>button {
+            margin: 0 0 10px 10px;
+            border-color: transparent;
+            @include size(10px, 10px);
+        }
+
+        &>div>.carousel>button {
+            background: none !important;
+
+            &::before {
+                font-size: 10px;
+                color: $blackColor;
+                background-color: $whiteColor;
+                padding: 8px;
+                font-weight: bold;
+                border-radius: $round;
+                border: 1px solid rgb(199, 199, 199);
+            }
+        }
+
+        &>div>.carousel>button {
+            display: none;
+        }
+    }
+
+    @media (max-width:1000px) {
+        .cardWrapper {
+            max-width: 30vw;
+            height: 100%;
+        }
+    }
+
+    @media (max-width:747px) {
+        .cardWrapper {
+            max-width: 45vw;
+            height: 100%;
+        }
+    }
+
+    @media (max-width:434px) {
+        .cardWrapper {
+            max-width: 90vw;
+            height: 100%;
+        }
+    }
+
+}

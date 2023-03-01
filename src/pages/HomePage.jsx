@@ -1,16 +1,20 @@
 import React from 'react';
-// import Button from '@mui/material/Button';
-
+import CarouselComponent from '../components/CarouselComponent';
+import homePage from '../assets/styles/HomePage.module.scss';
+import FilterComponent from '../components/FilterComponent';
+import CardComponent from '../components/CardComponent';
 
 function HomePage() {
 
     return (
-        <div style={{ height: '500vh' }}>
-            {/* <Button variant="contained">Contained</Button> */}
-            <div style={{background:'red',margin:'10px',width:'50px',height:'50px'}}></div>
-        </div>
-
+        <>
+            <div className={homePage.carousel}>
+                <CarouselComponent />
+                <FilterComponent />
+            </div>
+            <CardComponent />
+        </>
     )
 }
 
-export default HomePage
+export default HomePage;

@@ -6,4 +6,4 @@ function CardPage() {
     )
 }
 
-export default CardPage
+export default CardPage;

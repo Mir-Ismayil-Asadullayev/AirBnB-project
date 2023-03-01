@@ -1,10 +1,10 @@
 import React from 'react';
-import footer from '../assets/styles/Footer.module.scss';
+import footer from '../assets/styles/FooterComponent.module.scss';
 import globe from '../assets/images/globe.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-function Footer() {
+function FooterComponent() {
     return (
         <footer className={footer.footer}>
             <div>
@@ -33,4 +33,4 @@ function Footer() {
     )
 }
 
-export default Footer
+export default FooterComponent;

@@ -1,8 +1,8 @@
 import React from 'react';
-import filter from '../assets/styles/Filter.module.scss';
+import filter from '../assets/styles/FilterComponent.module.scss';
 import filt from '../assets/images/filter.svg';
 
-function Filter() {
+function FilterComponent() {
   return (
       <div className={filter.wrapper}>
           <div>
@@ -12,4 +12,4 @@ function Filter() {
   )
 }
 
-export default Filter
+export default FilterComponent;

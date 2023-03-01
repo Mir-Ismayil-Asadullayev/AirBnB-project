@@ -1,6 +1,6 @@
 import React from 'react';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Carousel from 'react-multi-carousel';
 import carousel from '../assets/styles/CarouselComponent.module.scss';
 
 
@@ -336,4 +336,4 @@ function CarouselComponent() {
   );
 }
 
-export default CarouselComponent
+export default CarouselComponent;

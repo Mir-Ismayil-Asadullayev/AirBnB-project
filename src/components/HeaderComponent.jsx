@@ -3,13 +3,11 @@ import logoFull from '../assets/images/airbnb.svg';
 import logo from '../assets/images/icons8-airbnb.svg';
 import burger from '../assets/images/burger.svg';
 import globe from '../assets/images/globe.svg';
-import header from '../assets/styles/Header.module.scss';
+import header from '../assets/styles/HeaderComponent.module.scss';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CarouselComponent from '../components/CarouselComponent';
-import Filter from '../components/Filter';
 
-function Header() {
+function HeaderComponent() {
     const [menu, setmenu] = useState(false);
     const [windowWidth, setwindowWidth] = useState(window.innerWidth);
     const btnRef = useRef();
@@ -33,7 +31,7 @@ function Header() {
     }, []);
 
     return (
-        <header >
+        <header>
             <div className={header.header}>
                 <div>
                     <img className={header.logo} src={windowWidth < 1040 ? logo : logoFull} alt="icon" />
@@ -62,12 +60,8 @@ function Header() {
                     </div>}
                 </div>
             </div>
-            <div className={header.carousel}>
-                <CarouselComponent />
-                <Filter />
-            </div>
         </header>
     )
 }
 
-export default Header
+export default HeaderComponent;

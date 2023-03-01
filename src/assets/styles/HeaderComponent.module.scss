@@ -1,9 +1,11 @@
 @import './main.scss';
 
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    z-index: 10002;
     background-color: $whiteColor;
+    width: 100%;
     .header {
         @include size(100%, 80px);
         display: flex;
@@ -91,19 +93,18 @@ header {
             }
 
             .profileMenu {
-                position: relative;
-                z-index: 1001;
                 font-size: 15px;
                 display: flex;
                 flex-flow: column nowrap;
                 @include size(220px, 410px);
-                position: absolute;
-                top: 55px;
-                left: 70px;
                 border-radius: 8px;
                 background-color: #fff;
                 font-size: 13px;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                position: absolute!important;
+                top: 55px;
+                left: 70px;
+                z-index: 1999!important;
 
                 span {
                     padding: 15px 17px;
@@ -163,10 +164,5 @@ header {
                 margin: 0;
             }
         }
-    }
-    .carousel {
-        display: flex;
-        height: 80px;
-        box-shadow: 0px 11px 19px -23px #111;
     }
 }
