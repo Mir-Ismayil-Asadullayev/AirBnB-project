@@ -37,13 +37,13 @@ function CardComponent() {
                                 swipeable={true}
                                 ssr={true}
                                 keyBoardControl={true}
-                                customTransition='transform 4s ease'
+                                customTransition='transform 1s ease'
                                 className={card.carousel}
                                 showDots={true}
                                 dotListClass={card.dots}
                                 autoPlay={true}
                                 infinite={true}
-                                autoPlaySpeed={6000}
+                                autoPlaySpeed={5000}
                             >
                                 <div>
                                     <CardMedia
