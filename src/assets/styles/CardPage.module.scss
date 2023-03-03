@@ -1,0 +1,53 @@
+@import './main.scss';
+
+.container {
+    margin-top: 100px;
+
+    .wrapper {
+        @include size(100%, 100%);
+        max-width: 90vw;
+        max-height: fit-content;
+        margin: auto;
+        gap: 25px;
+        border-radius: 15px;
+
+        .box {
+            border-radius: 10px;
+            overflow: auto;
+
+            @media (max-width:1120px) {
+                &>div {
+                    grid-column: span 3;
+                    grid-row: span 2;
+                }
+
+                &>div:last-child {
+                    display: none;
+                }
+
+            }
+        }
+
+        .contains {
+            @include size(90vw, 200px);
+            border: none;
+            box-shadow: none;
+            &>ul>li>div {
+                margin-left: 7px;
+            }
+
+            &>button {
+                background: none !important;
+                &::before {
+                    font-size: 12px;
+                    color: $blackColor;
+                    background-color: $whiteColor;
+                    padding: 7px;
+                    font-weight: bold;
+                    border-radius: $round;
+                    border: 1px solid rgb(199, 199, 199);
+                }
+            }
+        }
+    }
+}

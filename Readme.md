@@ -4,6 +4,7 @@
 ## npm i -S @fortawesome/free-solid-svg-icons
 ## npm i -S @fortawesome/free-brands-svg-icons
 ## npm i react-multi-carousel
+## npm install react-multi-carousel --save
 ## npm install @mui/material @emotion/react @emotion/styled
 ## npm install @mui/material @mui/styled-engine-sc styled-components
 ## npm install @fontsource/roboto

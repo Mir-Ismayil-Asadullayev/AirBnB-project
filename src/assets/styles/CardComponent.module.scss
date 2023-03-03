@@ -35,7 +35,7 @@
 
         &>div>.carousel>ul>li>button {
             margin: 0 0 10px 10px;
-            border-color: transparent;
+            border: 1px solid rgb(66, 66, 66);
             @include size(10px, 10px);
         }
 
