@@ -20,7 +20,8 @@ import { faDollar, faDownload, faStar } from '@fortawesome/free-solid-svg-icons'
 
 
 function CardPage() {
-    const [comments, setComments] = useState([])
+    const [comments, setComments] = useState([]);
+    const [addComment, setaddComment] = useState([]);
     const [windowWidth, setwindowWidth] = useState(window.innerWidth);
     const responsive = {
         desktop: {
@@ -32,10 +33,27 @@ function CardPage() {
     useEffect(() => {
         const handleWindowResize = () => setwindowWidth(window.innerWidth);
         window.addEventListener('resize', handleWindowResize);
-        return () => {
-            window.removeEventListener('resize', handleWindowResize);
-        }
+        return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
+    const textArea = useRef();
+    const addCommentHandler = () => {
+        if (textArea.current.value !== "" && comments.trim() !== "") {
+            setaddComment(addComment.concat(
+                <div className={cardPage.reviews} key={Date.now()}>
+                    <div className={cardPage.profile}>
+                        <img src="https://a0.muscache.com/im/pictures/user/6519e579-225e-4d98-8e3c-a3fc1abaa298.jpg?im_w=240" alt="profile" />
+                        <div>
+                            <span>Thomas</span>
+                            <span>September 2022</span>
+                        </div>
+                    </div>
+                    {comments}
+                </div>
+            ));
+            textArea.current.value = "";
+            window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+        }
+    }
     return (
         <div className={cardPage.container}>
             <section>
@@ -166,13 +184,14 @@ function CardPage() {
                         </div>
                         <button>Reserve</button>
                     </div>
-
                 </div>
                 <div className={cardPage.comments}>
                     <div><FontAwesomeIcon icon={faStar} /> 4.95 41 reviews</div>
-                    <textarea placeholder='Type your impressions...' type="text" onBlur={(e)=>setComments(comments.concat(<div key={comments.length}>{e.target.value}</div>))}/>
-                    <button>Add a Review</button>
-                    <div>{comments}</div>
+                    <textarea ref={textArea} placeholder='Type your impressions...' onChange={(e) => setComments(e.target.value)} />
+                    <button type='button' onClick={addCommentHandler}>Add a Review</button>
+                    <div style={{ marginBottom: '180px' }}>
+                        {addComment.map(item => item)}
+                    </div>
                 </div>
             </section>
         </div>

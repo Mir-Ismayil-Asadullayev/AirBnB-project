@@ -211,32 +211,70 @@
 
             &>button {
                 all: unset;
-                margin-top: 20px;
+                margin: 20px 0;
                 border: 1px solid rgb(194, 194, 194);
                 padding: 8px 15px;
                 border-radius: 5px;
                 width: 89vw;
                 text-align: center;
-                &:hover{
-                    background-color: #F32C58;
-                    color: $whiteColor;
-                    cursor: pointer;
-                }
-                &:active{
+                background-color: #F32C58;
+                color: $whiteColor;
+
+                &:hover {
                     background-color: $whiteColor;
                     color: $mainColor;
+                    cursor: pointer;
+                }
+
+                &:active {
+                    background-color: #F32C58;
+                    color: $whiteColor;
+                }
+            }
+
+            .reviews {
+                width: 89vw;
+                overflow-wrap: break-word;
+                margin: 20px auto;
+                border-bottom: 1px solid gray;
+                padding-bottom: 20px;
+                font-size: 14px;
+                font-weight: normal;
+                color: rgb(65, 65, 65);
+                box-sizing: border-box;
+                line-height: 20px;
+
+                .profile {
+                    padding: 20px 5px;
+                    display: flex;
+                }
+
+                .profile>img {
+                    border-radius: 50%;
+                    @include size(40px, 40px);
+                }
+
+                .profile>div {
+                    display: flex;
+                    flex-flow: wrap column;
+                    padding-left: 10px;
+
+                    &>span:first-child {
+                        font-weight: bold;
+                    }
                 }
             }
 
             &>textarea {
                 all: unset;
-                height: 100%;
-                overflow-wrap:break-word;
+                overflow-wrap: break-word;
                 margin-top: 20px;
                 width: 89vw;
+                height: 200px;
                 padding: 15px;
                 border: 1px solid gray;
-                border-radius: 10px;
+                border-radius: 5px;
+                font-size: 0.9em;
             }
         }
     }
