@@ -2,8 +2,9 @@ import React from 'react';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import app from './assets/styles/App.module.scss';
+import WishListPage from './pages/WishListPage';
 // import HomePage from './pages/HomePage';
-import CardPage from './pages/CardPage';
+// import CardPage from './pages/CardPage';
 
 function App() {
   console.log("render");
@@ -11,7 +12,8 @@ function App() {
     <div className={app.App}>
       <HeaderComponent />
       {/* <HomePage/> */}
-      <CardPage />
+      {/* <CardPage /> */}
+      <WishListPage/>
       <FooterComponent />
     </div>
   )
