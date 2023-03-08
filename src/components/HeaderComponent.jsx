@@ -6,7 +6,6 @@ import globe from '../assets/images/globe.svg';
 import header from '../assets/styles/HeaderComponent.module.scss';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 function HeaderComponent() {
@@ -53,10 +52,9 @@ function HeaderComponent() {
                         <img ref={imgRef} className={header.profilePhoto} src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="profile" />
                     </button>
                     {menu && <div className={header.profileMenu}>
-                        <NavLink to='/'>
-
-                        <span>Messages</span>
-                       </NavLink>
+                        <span>
+                            <NavLink to='/wishlist' style={{ all: "unset" }}>Messages</NavLink>
+                        </span>
                         <span>Trips</span>
                         <span>Wishlists</span>
                         <span>Airbnb your home</span>

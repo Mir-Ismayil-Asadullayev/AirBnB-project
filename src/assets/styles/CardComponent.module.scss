@@ -15,8 +15,7 @@
     .cardWrapper {
         max-width: 23vw;
         max-height: 284px;
-        width: 100%;
-        height: 100%;
+        @include size(100%, 100%);
         box-shadow: none;
         overflow: inherit;
         margin: 35px 10px;
@@ -79,4 +78,58 @@
         }
     }
 
+}
+
+.skeleton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 95px auto;
+    gap: 10px;
+
+    .skeletonItems>span {
+        margin-bottom: 5px;
+    }
+
+    .skeletonItems>span:first-child {
+        height: 200px;
+    }
+
+    .skeletonItems>span:nth-child(2) {
+        width: 80%;
+    }
+    .skeletonItems>span:nth-child(3) {
+        width: 60%;
+    }
+    .skeletonItems>span:nth-child(4) {
+        width: 40%;
+    }
+
+    .skeletonItems {
+        max-width: 23vw;
+        max-height: 284px;
+        @include size(100%, 100%);
+    }
+
+    @media (max-width:1000px) {
+        .skeletonItems {
+            max-width: 30vw;
+            height: 100%;
+        }
+    }
+
+    @media (max-width:747px) {
+        .skeletonItems {
+            max-width: 45vw;
+            height: 100%;
+        }
+    }
+
+    @media (max-width:434px) {
+        .skeletonItems {
+            max-width: 90vw;
+            height: 100%;
+        }
+    }
 }
