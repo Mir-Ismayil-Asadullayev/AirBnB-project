@@ -4,12 +4,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import card from '../assets/styles/CardComponent.module.scss';
+import card from '../assets/styles/CardsComponent.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Carousel from 'react-multi-carousel';
 import { NavLink } from 'react-router-dom';
 import { Skeleton } from '@mui/material';
+import { store } from '../state';
 
 function CardComponent() {
     const [data, setData] = useState([])
@@ -24,9 +25,14 @@ function CardComponent() {
         axios.get("https://restcountries.com/v3.1/all")
             .then(res => {
                 setData(res.data);
-            })
+            });
     }, []);
-    if (data.length === 0) {
+
+    const reduxHandler = (e) => {
+        store.dispatch({ type: "ADD_CARD", payload:e.target});
+    }
+
+    if (!data.length) {
         return (
             <>
                 <div className={card.skeleton}>
@@ -128,7 +134,18 @@ function CardComponent() {
                                     // autoPlaySpeed={5000}
                                     >
                                         <div>
-                                            <NavLink to='/card'>
+                                            <NavLink to={`/card/${item.fifa}`}>
+                                                <CardMedia
+                                                    component="img"
+                                                    height="200"
+                                                    image={item.flags.svg}
+                                                    alt="photo"
+
+                                                />
+                                            </NavLink>
+                                        </div>
+                                        <div>
+                                            <NavLink to={`/card/${item.fifa}`}>
                                                 <CardMedia
                                                     component="img"
                                                     height="200"
@@ -138,17 +155,7 @@ function CardComponent() {
                                             </NavLink>
                                         </div>
                                         <div>
-                                            <NavLink to='/card'>
-                                                <CardMedia
-                                                    component="img"
-                                                    height="200"
-                                                    image={item.flags.svg}
-                                                    alt="photo"
-                                                />
-                                            </NavLink>
-                                        </div>
-                                        <div>
-                                            <NavLink to='/card'>
+                                            <NavLink to={`/card/${item.fifa}`}>
                                                 <CardMedia
                                                     component="img"
                                                     height="200"
@@ -158,7 +165,7 @@ function CardComponent() {
                                             </NavLink>
                                         </div>
                                     </Carousel>
-                                    <NavLink to="/card" style={{ all: 'unset' }}>
+                                    <NavLink to={`/card/${item.fifa}`} style={{ all: 'unset' }}>
                                         <CardContent>
                                             <div className={card.cardContent}>
                                                 <Typography

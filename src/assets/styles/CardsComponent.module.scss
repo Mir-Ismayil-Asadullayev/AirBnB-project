@@ -86,10 +86,10 @@
     align-items: center;
     flex-flow: row wrap;
     margin: 95px auto;
-    gap: 10px;
+    gap: 20px;
 
     .skeletonItems>span {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     .skeletonItems>span:first-child {

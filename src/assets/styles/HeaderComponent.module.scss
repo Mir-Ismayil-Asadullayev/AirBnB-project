@@ -6,6 +6,7 @@ header {
     z-index: 10002;
     background-color: $whiteColor;
     width: 100%;
+
     .header {
         @include size(100%, 80px);
         display: flex;
@@ -84,6 +85,15 @@ header {
                     padding: 0 10px;
                     width: 18px;
                     padding-right: 3px;
+
+                    @media (max-width:1040px) {
+                        padding: 10px;
+                        &:hover{
+                        background-color: rgb(245, 245, 245);
+                        border-radius: $round;
+                        transition: 0.3s;
+                        }
+                    }
                 }
 
                 .profilePhoto {
@@ -101,10 +111,10 @@ header {
                 background-color: #fff;
                 font-size: 13px;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-                position: absolute!important;
+                position: absolute !important;
                 top: 55px;
                 left: 70px;
-                z-index: 1999!important;
+                z-index: 1999 !important;
 
                 span {
                     padding: 15px 17px;

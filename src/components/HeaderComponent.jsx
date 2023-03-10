@@ -52,11 +52,11 @@ function HeaderComponent() {
                         <img ref={imgRef} className={header.profilePhoto} src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="profile" />
                     </button>
                     {menu && <div className={header.profileMenu}>
-                        <span>
-                            <NavLink to='/wishlist' style={{ all: "unset" }}>Messages</NavLink>
-                        </span>
+                        <span>Messages</span>
                         <span>Trips</span>
-                        <span>Wishlists</span>
+                        <span>
+                            <NavLink to='/wishlist' style={{ all: "unset", display: 'block',height:"100%",width:"100%" }}>Wishlist</NavLink>
+                        </span>
                         <span>Airbnb your home</span>
                         <span>Host an experience</span>
                         <span>Refer a Host</span>

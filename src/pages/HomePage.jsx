@@ -2,7 +2,7 @@ import React from 'react';
 import CarouselComponent from '../components/CarouselComponent';
 import homePage from '../assets/styles/HomePage.module.scss';
 import FilterComponent from '../components/FilterComponent';
-import CardComponent from '../components/CardComponent';
+import CardComponent from '../components/CardsComponent';
 
 function HomePage() {
 
