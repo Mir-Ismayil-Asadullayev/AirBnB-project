@@ -13,12 +13,20 @@
     }
 
     .cardWrapper {
+        position: relative;
         max-width: 23vw;
         max-height: 284px;
         @include size(100%, 100%);
         box-shadow: none;
         overflow: inherit;
         margin: 35px 10px;
+
+        &>.heart {
+            position: absolute;
+            width: 25px;
+            top: 15px;
+            right: 15px;
+        }
 
         .carousel {
             border-radius: 13px;
@@ -80,6 +88,12 @@
 
 }
 
+.heartClick {
+    &>svg {
+        fill: red !important;
+    }
+}
+
 .skeleton {
     display: flex;
     justify-content: center;
@@ -99,9 +113,11 @@
     .skeletonItems>span:nth-child(2) {
         width: 80%;
     }
+
     .skeletonItems>span:nth-child(3) {
         width: 60%;
     }
+
     .skeletonItems>span:nth-child(4) {
         width: 40%;
     }

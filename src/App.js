@@ -14,7 +14,7 @@ function App() {
       <HeaderComponent />
       <Routes>
         <Route index path='/' element={<HomePage />} />
-        <Route path='card/:id' element={<CardPage />} />
+        <Route path='card' element={<CardPage />} />
         <Route path='wishlist' element={<WishListPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

@@ -24,14 +24,13 @@ function CardPage() {
     const [comments, setComments] = useState([]);
     const [addComment, setaddComment] = useState([]);
     const [windowWidth, setwindowWidth] = useState(window.innerWidth);
-    const [airbnb, setairbnb] = useState(null);
-    const { id } = useParams();
-    useEffect(() => {
-        axios.get(`https://restcountries.com/v3.1/${id}`)
-            .then(res => {
-                setairbnb(res.data);
-            });
-    }, [id]);
+    // const { id } = useParams();
+    // useEffect(() => {
+    //     axios.get(`https://restcountries.com/v3.1/${id}`)
+    //         .then(res => {
+    //             // setairbnb(res.data);
+    //         });
+    // }, [id]);
 
     const responsive = {
         desktop: {
@@ -84,19 +83,19 @@ function CardPage() {
                                 gridTemplateColumns="repeat(12, 1fr)"
                                 gap={1}>
                                 <Grid item gridColumn="span 6" gridRow='span 2'>
-                                    <CardMedia component='img' image={airbnb.flags.svg} alt='image'></CardMedia>
+                                    <CardMedia component='img' image='https://flagcdn.com/im.svg' alt='image'></CardMedia>
                                 </Grid>
                                 <Grid item gridColumn="span 3" >
-                                    <CardMedia component='img' image={airbnb.flags.svg} alt='image'></CardMedia>
+                                    <CardMedia component='img' image='https://flagcdn.com/im.svg' alt='image'></CardMedia>
                                 </Grid>
                                 <Grid item gridColumn="span 3" >
-                                    <CardMedia component='img' image={airbnb.flags.svg} alt='image'></CardMedia>
+                                    <CardMedia component='img' image='https://flagcdn.com/im.svg' alt='image'></CardMedia>
                                 </Grid>
                                 <Grid item gridColumn="span 3" >
-                                    <CardMedia component='img' image={airbnb.flags.svg} alt='image'></CardMedia>
+                                    <CardMedia component='img' image='https://flagcdn.com/im.svg' alt='image'></CardMedia>
                                 </Grid>
                                 <Grid item gridColumn="span 3">
-                                    <CardMedia component='img' image={airbnb.flags.svg} alt='image'></CardMedia>
+                                    <CardMedia component='img' image='https://flagcdn.com/im.svg' alt='image'></CardMedia>
                                 </Grid>
                             </Box>
                             :
@@ -115,7 +114,7 @@ function CardPage() {
                                         <CardMedia
                                             component="img"
                                             height="200"
-                                            image={airbnb.flags.svg}
+                                            image='https://flagcdn.com/im.svg'
                                             alt="photo"
                                         />
                                     </div>
@@ -123,7 +122,7 @@ function CardPage() {
                                         <CardMedia
                                             component="img"
                                             height="200"
-                                            image={airbnb.flags.svg}
+                                            image='https://flagcdn.com/im.svg'
                                             alt="photo"
                                         />
                                     </div>
@@ -131,7 +130,7 @@ function CardPage() {
                                         <CardMedia
                                             component="img"
                                             height="200"
-                                            image={airbnb.flags.svg}
+                                            image='https://flagcdn.com/im.svg'
                                             alt="photo"
                                         />
                                     </div>
@@ -139,7 +138,7 @@ function CardPage() {
                                         <CardMedia
                                             component="img"
                                             height="200"
-                                            image={airbnb.flags.svg}
+                                            image='https://flagcdn.com/im.svg'
                                             alt="photo"
                                         />
                                     </div>
@@ -147,7 +146,7 @@ function CardPage() {
                                         <CardMedia
                                             component="img"
                                             height="200"
-                                            image={airbnb.flags.svg}
+                                            image='https://flagcdn.com/im.svg'
                                             alt="photo"
                                         />
                                     </div>
