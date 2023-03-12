@@ -38,7 +38,6 @@ function HeaderComponent() {
                     <NavLink to='/' >
                         <img className={header.logo} src={windowWidth < 1040 ? logo : logoFull} alt="icon" />
                     </NavLink>
-
                 </div>
                 <div className={header.searchBar}>
                     <input className={header.searchInput} placeholder='Search for airbnb...' type="text" />

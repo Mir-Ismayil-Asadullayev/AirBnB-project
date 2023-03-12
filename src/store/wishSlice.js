@@ -10,13 +10,18 @@ const wishSlice = createSlice({
             state.list.push({
                 name: action.payload.name,
                 photo: action.payload.photo,
-                pic: action.payload.pic
+                pic: action.payload.pic,
+                tick: action.payload.tick
             })
         },
-        deleteCard(state, action) { },
-        clearCard(state, action) { }
+        deleteCard(state, action) {
+            state.list = state.list.filter(item => item.name !== action.payload.name);
+        },
+        clearState(state) {
+            state.list = [];
+        }
     }
 });
 
-export const { addCard, deleteCard, clearCard } = wishSlice.actions;
+export const { addCard, deleteCard, clearState } = wishSlice.actions;
 export default wishSlice.reducer;

@@ -33,10 +33,10 @@ header {
         .searchBar {
             @extend %searchInput;
             margin-left: 150px;
+            padding: 8px 8px 8px 20px;
 
             .searchInput {
                 all: unset;
-                padding: 0 60px;
                 box-sizing: border-box;
             }
 
@@ -88,10 +88,11 @@ header {
 
                     @media (max-width:1040px) {
                         padding: 10px;
-                        &:hover{
-                        background-color: rgb(245, 245, 245);
-                        border-radius: $round;
-                        transition: 0.3s;
+
+                        &:hover {
+                            background-color: rgb(245, 245, 245);
+                            border-radius: $round;
+                            transition: 0.3s;
                         }
                     }
                 }

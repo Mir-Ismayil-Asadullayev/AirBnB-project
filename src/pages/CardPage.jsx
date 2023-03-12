@@ -17,8 +17,8 @@ import 'react-multi-carousel/lib/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faDollar, faDownload, faStar } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+// import { useParams } from 'react-router-dom';
+// import axios from 'axios';
 
 function CardPage() {
     const [comments, setComments] = useState([]);
@@ -39,11 +39,6 @@ function CardPage() {
         }
 
     };
-    useEffect(() => {
-        const handleWindowResize = () => setwindowWidth(window.innerWidth);
-        window.addEventListener('resize', handleWindowResize);
-        return () => window.removeEventListener('resize', handleWindowResize);
-    }, []);
     const textArea = useRef();
     const addCommentHandler = () => {
         if (textArea.current.value !== "" && comments.trim() !== "") {

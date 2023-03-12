@@ -9,6 +9,9 @@ import '@fontsource/roboto/700.css';
 import { BrowserRouter } from 'react-router-dom';
 import store from './store';
 import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,7 +19,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
         <App />
+        </QueryClientProvider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

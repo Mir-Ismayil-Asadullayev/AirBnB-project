@@ -1,17 +1,38 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import wishList from '../assets/styles/WishListPage.module.scss';
+import { deleteCard, clearState } from '../store/wishSlice';
 
 function WishListPage() {
     const wishes = useSelector(state => state.wish.list);
-    console.log(wishes);
+    const dispatch = useDispatch();
+    const removeCard = (item) => {
+        dispatch(deleteCard({
+            photo: item.photo,
+            pic: item.pic,
+            name: item.name
+        }))
+    }
+    const clearList = () => {
+        dispatch(clearState());
+    }
+
     return (
         <div className={wishList.container}>
-            <div className={wishList.wrapper}>
-                <h4>Adrasan da Sonsuzluk Havuzlu Mağara Villa (No:5)</h4>
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-618133020295708288/original/3ef583d2-16d9-4640-a939-246324320442.jpeg?im_w=960" alt="" />
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-618133020295708288/original/3ef583d2-16d9-4640-a939-246324320442.jpeg?im_w=960" alt="" />
-            </div>
+            {
+                wishes && wishes.map(item =>
+                    <div className={wishList.wrapper} key={Math.random()}>
+                        <img src={item.pic} alt="pic" />
+                        <img src={item.photo} alt="pic" />
+                        <div>
+                            <NavLink to='/card'>{item.name} </NavLink>
+                            <button onClick={() => removeCard(item)}>Remove Card from List</button>
+                        </div>
+                    </div>
+                )
+            }
+            <button className={wishList.clearBtn} onClick={clearList}>Clear Wishlist</button>
         </div>
     )
 }

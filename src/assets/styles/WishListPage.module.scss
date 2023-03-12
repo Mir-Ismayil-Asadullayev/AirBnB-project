@@ -1,22 +1,88 @@
 @import './main.scss';
 
-.container{
+.container {
     margin: 100px auto;
     width: 95vw;
     display: flex;
     flex-flow: row wrap;
-    gap: 10px;
-    .wrapper{
+    gap: 30px 10px;
+    justify-content: center;
+
+    .clearBtn {
+        all: unset;
+        position: fixed;
+        bottom: 51px;
+        width: 100%;
+        background-color: $mainColor;
+        color: $whiteColor;
+        font-size: 1rem;
+        padding: 8px 0;
+        text-align: center;
+        outline: 1px solid red;
+
+
+        &:hover {
+            cursor: pointer;
+            color: $mainColor;
+            background-color: $whiteColor;
+            outline: 1px solid red;
+        }
+
+        &:active {
+            cursor: pointer;
+            background-color: $mainColor;
+            color: $whiteColor;
+        }
+    }
+
+    .wrapper {
         border: 1px solid rgb(175, 175, 175);
         padding: 10px;
         border-radius: 5px;
         text-align: center;
         margin: auto;
-        &>img{
-            @include size(150px,100px);
+
+        &>div {
+            border-top: 1px solid rgb(175, 175, 175);
+
+            a {
+                all: unset;
+                display: block;
+                margin: 20px auto;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+
+        button {
+            all: unset;
+            background-color: $mainColor;
+            color: $whiteColor;
+            font-size: 1rem;
+            padding: 10px;
+            width: 90%;
+            border-radius: 5px;
+
+            &:hover {
+                cursor: pointer;
+                color: $mainColor;
+                background-color: $whiteColor;
+                outline: 1px solid red;
+            }
+
+            &:active {
+                cursor: pointer;
+                background-color: $mainColor;
+                color: $whiteColor;
+            }
+        }
+
+        &>img {
+            @include size(150px, 100px);
             margin: 5px;
         }
-        &>h4{
+
+        &>h4 {
             font-size: 0.8em;
             margin: 8px 5px;
         }
