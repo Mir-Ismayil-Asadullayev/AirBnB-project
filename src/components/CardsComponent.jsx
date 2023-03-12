@@ -24,6 +24,7 @@ async function fetchData() {
 }
 
 function CardComponent() {
+    console.log('card');
     const { data, isLoading, isError } = useQuery('data', fetchData);
 
     const responsive = {

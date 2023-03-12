@@ -5,7 +5,7 @@ import FilterComponent from '../components/FilterComponent';
 import CardComponent from '../components/CardsComponent';
 
 function HomePage() {
-
+console.log("home");
     return (
         <>
             <div className={homePage.carousel}>

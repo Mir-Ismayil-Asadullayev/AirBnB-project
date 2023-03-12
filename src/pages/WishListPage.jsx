@@ -19,21 +19,24 @@ function WishListPage() {
     }
 
     return (
-        <div className={wishList.container}>
-            {
-                wishes && wishes.map(item =>
-                    <div className={wishList.wrapper} key={Math.random()}>
-                        <img src={item.pic} alt="pic" />
-                        <img src={item.photo} alt="pic" />
-                        <div>
-                            <NavLink to='/card'>{item.name} </NavLink>
-                            <button onClick={() => removeCard(item)}>Remove Card from List</button>
+        <>
+            <h1 style={{marginTop:'82px',textAlign:'center'}}>Wishlists</h1>
+            <div className={wishList.container}>
+                {
+                    wishes && wishes.map(item =>
+                        <div className={wishList.wrapper} key={Math.random()}>
+                            <img src={item.pic} alt="pic" />
+                            <img src={item.photo} alt="pic" />
+                            <div>
+                                <NavLink to='/card'>{item.name} </NavLink>
+                                <button onClick={() => removeCard(item)}>Remove Card from List</button>
+                            </div>
                         </div>
-                    </div>
-                )
-            }
-            <button className={wishList.clearBtn} onClick={clearList}>Clear Wishlist</button>
-        </div>
+                    )
+                }
+                <button className={wishList.clearBtn} onClick={clearList}>Clear Wishlist</button>
+            </div>
+        </>
     )
 }
 
