@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import wishList from '../assets/styles/WishListPage.module.scss';
 import { deleteCard, clearState } from '../store/wishSlice';
+import { motion } from 'framer-motion';
 
 function WishListPage() {
     const wishes = useSelector(state => state.wish.list);
@@ -19,8 +20,12 @@ function WishListPage() {
     }
 
     return (
-        <>
-            <h1 style={{marginTop:'82px',textAlign:'center'}}>Wishlists</h1>
+        <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '100%' }}
+            exit={{ x: window.innerWidth }}
+        >
+            <h1 style={{ marginTop: '82px', textAlign: 'center' }}>Wishlists</h1>
             <div className={wishList.container}>
                 {
                     wishes && wishes.map(item =>
@@ -36,7 +41,7 @@ function WishListPage() {
                 }
                 <button className={wishList.clearBtn} onClick={clearList}>Clear Wishlist</button>
             </div>
-        </>
+        </motion.div>
     )
 }
 

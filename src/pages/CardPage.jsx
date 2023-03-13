@@ -17,20 +17,28 @@ import 'react-multi-carousel/lib/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faDollar, faDownload, faStar } from '@fortawesome/free-solid-svg-icons';
-// import { useParams } from 'react-router-dom';
-// import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { motion } from 'framer-motion';
 
 function CardPage() {
+    const textArea = useRef();
     const [comments, setComments] = useState([]);
     const [addComment, setaddComment] = useState([]);
     const [windowWidth, setwindowWidth] = useState(window.innerWidth);
-    // const { id } = useParams();
-    // useEffect(() => {
-    //     axios.get(`https://restcountries.com/v3.1/${id}`)
-    //         .then(res => {
-    //             // setairbnb(res.data);
-    //         });
-    // }, [id]);
+    const { id } = useParams();
+    useEffect(() => {
+        axios.get(`https://restcountries.com/v3.1/${id}`)
+            .then(res => {
+
+            });
+    }, [id]);
+
+    useEffect(() => {
+        const handleWindowResize = () => setwindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleWindowResize);
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
 
     const responsive = {
         desktop: {
@@ -39,7 +47,7 @@ function CardPage() {
         }
 
     };
-    const textArea = useRef();
+
     const addCommentHandler = () => {
         if (textArea.current.value !== "" && comments.trim() !== "") {
             setaddComment(addComment.concat(
@@ -59,7 +67,12 @@ function CardPage() {
         }
     }
     return (
-        <div className={cardPage.container}>
+        <motion.div
+            className={cardPage.container}
+            initial={{ width: 0 }}
+            animate={{ width: '100%' }}
+            exit={{ x: window.innerWidth }}
+        >
             <section>
                 <Grid container className={cardPage.wrapper}>
                     <Grid container spacing={2} alignItems="center">
@@ -204,7 +217,7 @@ function CardPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </motion.div>
     )
 }
 

@@ -1,40 +1,33 @@
-
-.page_404 {
+.page-404 {
     padding: 40px 0;
     background: #fff;
-    width: 90vw;
-    margin: auto;
+    width: 94%;
+    margin: 80px auto 0;
 }
 
-.page_404 img {
+.page-404 img {
     width: 100%;
 }
 
-.four_zero_four_bg {
+.four-zero-four-bg {
     background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
     height: 400px;
     background-position: center;
 }
 
-.four_zero_four_bg h1 {
+.four-zero-four-bg h1 {
     font-size: 80px;
     position: relative;
     top:0;
-    left: 20vw;
-}
-
-.four_zero_four_bg h3 {
-    font-size: 80px;
-}
-
-.link_404 {
-    color: #fff !important;
-    padding: 10px 20px;
-    background: #39ac31;
-    margin: 20px 0;
+    left: 18vw;
     display: inline-block;
 }
 
-.contant_box_404 {
+.four-zero-four-bg h3 {
+    font-size: 80px;
+}
+
+.contant-box-404 {
     margin-top: -50px;
+    text-align: center;
 }

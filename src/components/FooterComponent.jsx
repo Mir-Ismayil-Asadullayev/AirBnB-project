@@ -28,7 +28,6 @@ function FooterComponent() {
                 <span>Support & resources</span>
                 <FontAwesomeIcon icon={faChevronUp} />
             </div>
-
         </footer>
     )
 }

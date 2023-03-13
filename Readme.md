@@ -9,3 +9,4 @@
 ## redux-toolkit
 ## toastify
 ## react-query
+## framer-motion
